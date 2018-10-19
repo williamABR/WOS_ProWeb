@@ -1,5 +1,5 @@
+import { RestClientService } from './../services/rest-client.service';
 import { Component, OnInit } from '@angular/core';
-import { VerificacionUsuarioService } from './services/verificacion-usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +7,59 @@ import { VerificacionUsuarioService } from './services/verificacion-usuario.serv
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario = 'user';
-  contrasena = 'password';
-  constructor(private restCliente:VerificacionUsuarioService) { }
+  user = 'user';
+  password = 'password';
 
-  ngOnInit() {
+  result: any;
+
+  message: any;
+
+  constructor(private restClient: RestClientService) {}
+
+  ngOnInit() {}
+
+  doLogin() {
+    console.log(this.user + ' - ' + this.password);
+    this.restClient.login(this.user, this.password).subscribe(data => {
+        this.message = 'Login Ok';
+      }, error => {
+        console.error(error);
+        this.message = JSON.stringify(error);
+      });
   }
-   hacerLogin(){
-    console.log('entro');
-   }
 
+  getTestData() {
+    this.restClient.getTestData().subscribe(
+      data => {
+        console.log('Success' + data);
+        this.message = JSON.stringify(data);
+      },
+      error => {
+        console.error(error);
+        this.message = JSON.stringify(error);
+      }
+    );
+  }
+
+  getRestrictedData() {
+    this.restClient.getRestrictedData().subscribe(
+      data => {
+        console.log('Success' + data);
+        this.message = JSON.stringify(data);
+      },
+      error => {
+        console.error(error);
+        this.message = JSON.stringify(error);
+      }
+    );
+  }
+
+  logout() {
+    this.restClient.logout().subscribe(data => {
+        this.message = 'Logout Ok';
+      }, error => {
+        console.error(error);
+        this.message = JSON.stringify(error);
+      });
+  }
 }
