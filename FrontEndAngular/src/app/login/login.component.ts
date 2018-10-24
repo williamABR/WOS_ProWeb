@@ -1,5 +1,6 @@
 import { RestClientService } from './../services/rest-client.service';
 import { Component, OnInit } from '@angular/core';
+import { Routes, RouterModule, Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   message: any;
 
-  constructor(private restClient: RestClientService) {}
+  constructor(private restClient: RestClientService,private router: Router) {}
 
   ngOnInit() {}
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     console.log(this.user + ' - ' + this.password);
     this.restClient.login(this.user, this.password).subscribe(data => {
         this.message = 'Login Ok';
+        this.router.navigate(['inicio'])
       }, error => {
         console.error(error);
         this.message = JSON.stringify(error);
