@@ -12,9 +12,15 @@ import javax.persistence.OneToMany;
 public class Producto {
     private String nombre;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue Long id;
     private String codigo;
     private String medida;
+
+    public Producto(String nom,String cod,String med) {
+        this.nombre = nom;
+        this.codigo = cod;
+        this.medida = med;
+    }
    
     @OneToMany(mappedBy="producto")
     private List<Lote> productos;

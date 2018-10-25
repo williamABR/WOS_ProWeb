@@ -9,6 +9,7 @@ import { RestClientService } from './services/rest-client.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 
 
@@ -16,7 +17,8 @@ import { InicioComponent } from './inicio/inicio.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    InicioComponent
+    InicioComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

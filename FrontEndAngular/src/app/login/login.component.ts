@@ -1,6 +1,8 @@
 import { RestClientService } from './../services/rest-client.service';
 import { Component, OnInit } from '@angular/core';
-import { Routes, RouterModule, Router } from "@angular/router";
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,11 @@ import { Routes, RouterModule, Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   user = 'user';
   password = 'password';
+  
+  private _success = new Subject<string>();
+
+  staticAlertClosed = false;
+  successMessage: string;
 
   result: any;
 
@@ -17,31 +24,26 @@ export class LoginComponent implements OnInit {
 
   constructor(private restClient: RestClientService,private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    /*setTimeout(() => this.staticAlertClosed = true, 20000);
+
+    this._success.subscribe((message) => this.successMessage = message);
+    this._success.pipe(
+      debounceTime(5000)
+    ).subscribe(() => this.successMessage = null);*/
+  }
 
   doLogin() {
-    console.log(this.user + ' - ' + this.password);
     this.restClient.login(this.user, this.password).subscribe(data => {
         this.message = 'Login Ok';
         this.router.navigate(['inicio'])
       }, error => {
         console.error(error);
+        //this.changeSuccessMessage();
         this.message = JSON.stringify(error);
       });
   }
 
-  getTestData() {
-    this.restClient.getTestData().subscribe(
-      data => {
-        console.log('Success' + data);
-        this.message = JSON.stringify(data);
-      },
-      error => {
-        console.error(error);
-        this.message = JSON.stringify(error);
-      }
-    );
-  }
 
   getRestrictedData() {
     this.restClient.getRestrictedData().subscribe(
@@ -63,5 +65,8 @@ export class LoginComponent implements OnInit {
         console.error(error);
         this.message = JSON.stringify(error);
       });
+  }
+  changeSuccessMessage(){
+    this._success.next('Usuario o Contraseña incorrecto');
   }
 }

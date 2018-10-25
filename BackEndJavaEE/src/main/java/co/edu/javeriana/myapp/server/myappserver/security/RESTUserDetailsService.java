@@ -23,7 +23,6 @@ public class RESTUserDetailsService implements UserDetailsService {
 	@Override
 	public User loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO En este método debería recuperarlse la info del usuario desde la base de datos
-		
 		System.out.println("*** Retrieving user");
 		return users.get(username);
 	}	
