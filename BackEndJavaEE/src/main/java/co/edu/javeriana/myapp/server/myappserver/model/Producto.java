@@ -16,11 +16,14 @@ public class Producto {
     private Long id;
     private String codigo;
     private String medida;
+    private Integer precio;
+    private String url;
 
-    public Producto(String nom,String cod,String med) {
+    public Producto(String nom,String cod,String med,Integer pre) {
         this.nombre = nom;
         this.codigo = cod;
         this.medida = med;
+        this.precio = pre;
     }
    
     @OneToMany(mappedBy="producto")

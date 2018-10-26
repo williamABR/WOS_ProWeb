@@ -12,21 +12,14 @@ import javax.persistence.ManyToOne;
 public class Lote{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String codigoSKU;
     @ManyToOne 
     private Producto producto;
-    private int precio;
     private int stock;
     private Date expFecha;
    
    
-   
-    public int getPrice() {
-        return precio;
-    }
-    public void setPrice(int precio) {
-        this.precio = precio;
-    }
     public int getStock() {
         return stock;
     }
