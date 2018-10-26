@@ -1,6 +1,8 @@
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {Producto} from './Producto';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RestClientService {
@@ -23,6 +25,9 @@ export class RestClientService {
     return this.http.post('http://localhost:8080/api/test', '', {
       withCredentials: true
     });
+  }
+  productosFindAll(): Observable<Producto[]> {
+    return this.http.get<Producto[]>('http://localhost:8080/api/productos');
   }
 
   getRestrictedData() {

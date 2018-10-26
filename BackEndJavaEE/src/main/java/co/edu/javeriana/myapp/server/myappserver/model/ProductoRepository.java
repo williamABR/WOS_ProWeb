@@ -9,9 +9,9 @@ package co.edu.javeriana.myapp.server.myappserver.model;
  *
  * @author williambaquero
  */
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 
-public interface ProductoRepository extends JpaRepository<Producto, Long>{
+public interface ProductoRepository extends CrudRepository<Producto, Long>{
     
 }

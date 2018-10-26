@@ -12,7 +12,8 @@ import javax.persistence.OneToMany;
 public class Producto {
     private String nombre;
     @Id
-    @GeneratedValue Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String codigo;
     private String medida;
 

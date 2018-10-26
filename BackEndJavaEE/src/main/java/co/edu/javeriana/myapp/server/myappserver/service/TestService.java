@@ -11,17 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @RestController()
 @RequestMapping("/api")
 public class TestService {
 
-    private final ProductoRepository repository;
-
-    TestService(ProductoRepository repository) {
-		this.repository = repository;
-	}
+    @Autowired
+	private ProductoRepository repository;
 
 	@RequestMapping(value = "/test", produces = "application/json")
 	public String test() {
@@ -34,20 +32,15 @@ public class TestService {
         return "{\"value\": \"ok admin\"}";
     }
 
-	@RequestMapping(value = "/current-user", method = RequestMethod.GET, produces="application/json")
+    @RequestMapping(value = "/current-user", method = RequestMethod.GET, produces="application/json")
     @ResponseBody
     public User currentUserName(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         return user;
     }
-    @GetMapping("/productos")
-	List<Producto> all() {
+    @RequestMapping("/productos")
+	Iterable<Producto> all() {
 		return repository.findAll();
     }
-    
-    @PostMapping("/employees")
-	Producto newEmployee(@RequestBody Producto newEmployee) {
-		return repository.save(newEmployee);
-	}
 	
 }
