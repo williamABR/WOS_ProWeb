@@ -11,13 +11,13 @@ import { Router } from "@angular/router";
 })
 export class CarritoComponent implements OnInit {
   productos: ProductoFac[] = [
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },
-    {  nombre: 'Mr. Nice', codigo:'123', medida:'ml' ,precio:1000, cantidad:1 },];
+    {  idProducto: 1, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
+    {  idProducto: 2, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
+    {  idProducto: 3, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
+    {  idProducto: 4, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
+    {  idProducto: 5, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
+    {  idProducto: 6, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
+    {  idProducto: 7, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },];
   total:number = 0;
 
   constructor(private restClient: RestClientService, private router: Router) {

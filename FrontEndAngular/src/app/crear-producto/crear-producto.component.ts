@@ -10,10 +10,10 @@ import { Producto } from '../services/Producto';
 })
 export class CrearProductoComponent implements OnInit {
 
-  nuevoProducto:Producto = {nombre:'',precio:0,codigo:'',medida:'',url:''};
+  nuevoProducto:Producto = {idProducto: 0, nombre:'', precio:0, unidadMedida:'',url:''};
   nombre='';
   precio=0;
-  medida='';
+  unidadMedida='';
   url = '';
   constructor(private restClient: RestClientService, private router: Router) { }
 
@@ -33,7 +33,7 @@ export class CrearProductoComponent implements OnInit {
   crearProducto(){
     this.nuevoProducto.nombre = this.nombre;
     this.nuevoProducto.precio = this.precio;
-    this.nuevoProducto.medida = this.medida;
+    this.nuevoProducto.unidadMedida = this.unidadMedida;
     this.nuevoProducto.url = this.url;
     this.router.navigate(['inventario'])
     console.log(this.nuevoProducto);
