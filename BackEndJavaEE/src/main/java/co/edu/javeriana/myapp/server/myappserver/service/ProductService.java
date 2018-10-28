@@ -37,7 +37,7 @@ public class ProductService {
     }
     
     @RequestMapping("/new_prod")
-	Producto createProducto(@RequestParam(value = "productoJSON") String productoJSON) {		
+	Producto createProducto(@RequestParam(value = "product") String productoJSON) {		
         System.out.println("Llegó");
         ObjectMapper mapper = new ObjectMapper();
         try {

@@ -28,9 +28,26 @@ export class RestClientService {
     producto.precio = precio;
     producto.unidadMedida = medida;
     producto.url = url;
-    return this.http.post('http://localhost:8080/new_prod', JSON.stringify(producto), {
+    /*return this.http.post('http://localhost:8080/new_prod', JSON.stringify(producto), {
       withCredentials: true
-    });
+    });*/
+
+    
+     const body = JSON.stringify(producto);
+     const headers = new HttpHeaders();
+     headers.append('Content-Type','application/json');
+
+     const params = new HttpParams()
+       .set('product', body);
+
+      return this.http.post('http://localhost:8080/new_prod', null, {
+        headers: headers,
+        params: params,
+        withCredentials: true
+      });
+
+
+
   }
 
   getTestData() {
