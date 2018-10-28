@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">PiggiMarket</a>
+    <button type="button" (click)="logout()" class="btn btn-primary" >Logout</button>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="inventario">Inventario</a>
+    <a class="navbar-brand" href="crearproducto">Crear Producto</a>
+    <a class="navbar-brand" href="crearlote">Crear Lote</a>
+  </nav>
+  <div class="container">
+  <form class="woocommerce-cart-form">
+    <div class="jumbotron" style=" width:700px; position: relative;left: 5.5cm;">
+      <div class="album py-5 bg-light">
+          <h2 style="position: relative;left: 3.3cm;">INVENTARIO PRODUCTOS</h2>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Referencia</th>
+                    <th scope="col">Medida</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productos">
+                    <th scope="row">{{producto.nombre}}</th>
+                    <td>{{producto.codigo}}</td>
+                    <td>{{producto.medida}}</td>
+                    <td style=" width:70px;"><input type="number"  class="form-control" name="cantidad" value="{{producto.cantidad}}" onclick="cambiar()"></td>
+                    <td>{{producto.precio}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+      <div class="album py-5 bg-light">
+          <h2 style="position: relative;left: 4.5cm;">INVENTARIO LOTES</h2>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">CodigoSKU</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productos">
+                    <th scope="row">{{producto.nombre}}</th>
+                    <td>{{producto.codigo}}</td>
+                    <td>{{producto.Stock}}</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary" style=" width:300px; position: relative;left: 4.5cm;">Finalizar Compra</button>
+    </div>
+  </form>
+  </div>
+  <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">Copyright &copy; PiggiMarket 2018</p>
+      </div>
+    </footer>

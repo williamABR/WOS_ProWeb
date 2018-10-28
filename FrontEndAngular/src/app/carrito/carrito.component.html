@@ -6,8 +6,52 @@
   <a class="navbar-brand" href="inicio">Productos</a>
   <a class="navbar-brand" href="carrito">Carrito de Compra</a>
 </nav>
+<div class="container">
 <form class="woocommerce-cart-form">
-  <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents mb-0" cellspacing="0">
-    
-  </table>
+  <div class="jumbotron" style=" width:700px; position: relative;left: 5.5cm;">
+    <div class="album py-5 bg-light">
+        <h2 style="position: relative;left: 6cm;">PRE-FACTURA</h2>
+      <div class="container">
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Referencia</th>
+                  <th scope="col">Medida</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos">
+                  <th scope="row">{{producto.nombre}}</th>
+                  <td>{{producto.codigo}}</td>
+                  <td>{{producto.medida}}</td>
+                  <td style=" width:70px;"><input type="number"  class="form-control" name="cantidad" value="{{producto.cantidad}}" onclick="cambiar()"></td>
+                  <td>{{producto.precio}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">  </th>
+                    <th scope="col">  </th>
+                    <th scope="col">  </th>
+                    <th scope="col">  Total:</th>
+                    <th scope="col">${{total}}</th>
+                  </tr>
+                </thead>
+              </table>
+      </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" style=" width:300px; position: relative;left: 4.5cm;">Finalizar Compra</button>
+  </div>
 </form>
+</div>
+<footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; PiggiMarket 2018</p>
+    </div>
+  </footer>

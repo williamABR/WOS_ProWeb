@@ -1,7 +1,7 @@
 import { Producto } from "./Producto";
 export class Lote {
+    id:number;
     codigoSKU:string;
     producto:Producto;
-    precio:number;
     stock:number;
 }

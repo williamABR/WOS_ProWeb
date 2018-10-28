@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import {InventarioComponent} from './inventario/inventario.component';
+import { CrearLoteComponent } from './crear-lote/crear-lote.component';
+import { CrearProductoComponent } from './crear-producto/crear-producto.component';
 
 
 
@@ -18,7 +21,10 @@ import { CarritoComponent } from './carrito/carrito.component';
     AppComponent,
     LoginComponent,
     InicioComponent,
-    CarritoComponent
+    CarritoComponent,
+    InventarioComponent,
+    CrearLoteComponent,
+    CrearProductoComponent
   ],
   imports: [
     BrowserModule,

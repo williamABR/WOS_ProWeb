@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         if(data['authorities'][0]['authority'] == 'ROLE_USER')
           this.router.navigate(['inicio']);
         else
-          this.router.navigate(['carrito']);
+          this.router.navigate(['inventario']);
       },    error => {
       console.error(error);
       this.message = JSON.stringify(error);
