@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   user = 'user';
   password = 'password';
+
   
   private _success = new Subject<string>();
 

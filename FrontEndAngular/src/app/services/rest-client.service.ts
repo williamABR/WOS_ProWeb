@@ -26,8 +26,16 @@ export class RestClientService {
       withCredentials: true
     });
   }
-  productosFindAll(): Observable<Producto[]> {
-    return this.http.get<Producto[]>('http://localhost:8080/api/productos');
+  productosFindAll() {
+    return this.http.post('http://localhost:8080/api/productos', '',{
+      withCredentials: true
+    });
+  }
+
+  getRole() {
+    return this.http.post('http://localhost:8080/api/getRole', '',{
+      withCredentials: true
+    });
   }
 
   getRestrictedData() {
