@@ -36,13 +36,28 @@ export class LoginComponent implements OnInit {
 
   doLogin() {
     this.restClient.login(this.user, this.password).subscribe(data => {
-        this.message = 'Login Ok';
-        this.router.navigate(['inicio'])
+        //this.message = 'Login Ok';
+        this.userType();
+        //this.router.navigate(['inicio'])
       }, error => {
         console.error(error);
         //this.changeSuccessMessage();
         this.message = JSON.stringify(error);
       });
+  }
+
+  userType() {
+    this.restClient.getRole().subscribe(
+      data => {
+        console.log('Success' + data);
+        if(data['authorities'][0]['authority'] == 'ROLE_USER')
+          this.router.navigate(['inicio']);
+        else
+          this.router.navigate(['carrito']);
+      },    error => {
+      console.error(error);
+      this.message = JSON.stringify(error);
+    });
   }
 
 
