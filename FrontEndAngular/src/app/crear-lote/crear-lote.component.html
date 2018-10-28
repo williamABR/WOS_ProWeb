@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">PiggiMarket</a>
+    <button type="button" (click)="logout()" class="btn btn-primary" >Logout</button>
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="inventario">Inventario</a>
+    <a class="navbar-brand" href="crearproducto">Crear Producto</a>
+    <a class="navbar-brand" href="crearlote">Crear Lote</a>
+  </nav>
+  <div class="container">
+  <form class="woocommerce-cart-form" (ngSubmit)="crearLote()">
+    <br>
+      <div class="form-group">
+          <label for="exampleFormControlSelect1">Producto</label>
+          <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="produ" name="produ">
+            <option *ngFor="let producto of productos" [value]="producto.Value" >{{producto.nombre}}</option>
+          </select>
+      </div>
+    <div class="form-group">
+    <label >CodigoSKU</label>
+    <input type="text" class="form-control" [(ngModel)]="codigo" name="sku">
+    <label >Stock</label>
+    <input type="number" class="form-control" [(ngModel)]="stock" name="stock">
+    <br>
+    <button type="submit" class="btn btn-primary" style=" width:300px; position: relative;left: 10.5cm;">Crear Nuevo Lote</button>
+    </div>
+  </form>
+  </div>
+  <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">Copyright &copy; PiggiMarket 2018</p>
+      </div>
+    </footer>
