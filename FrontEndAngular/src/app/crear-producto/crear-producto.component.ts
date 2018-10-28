@@ -10,7 +10,8 @@ import { Producto } from '../services/Producto';
 })
 export class CrearProductoComponent implements OnInit {
 
-  nuevoProducto:Producto = {idProducto: 0, nombre:'', precio:0, unidadMedida:'',url:''};
+  ide = 0;
+  nuevoProducto:Producto = {idProducto: this.ide, nombre:'', precio:0, unidadMedida:'',url:''};
   nombre='';
   precio=0;
   unidadMedida='';
@@ -18,6 +19,7 @@ export class CrearProductoComponent implements OnInit {
   constructor(private restClient: RestClientService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   logout() {
@@ -31,10 +33,13 @@ export class CrearProductoComponent implements OnInit {
   }
 
   crearProducto(){
+    this.ide++;
+    this.nuevoProducto.idProducto = this.ide;
     this.nuevoProducto.nombre = this.nombre;
     this.nuevoProducto.precio = this.precio;
     this.nuevoProducto.unidadMedida = this.unidadMedida;
     this.nuevoProducto.url = this.url;
+    this.restClient.newProduct(this.nuevoProducto);
     this.router.navigate(['inventario'])
     console.log(this.nuevoProducto);
   }
