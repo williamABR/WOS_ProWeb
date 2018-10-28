@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MyappServerApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "co.edu.javeriana.myapp.server.myappserver.MyappServerApplication",
+            "args": "",
+            "projectName": "myapp-server"
+        }
+    ]
+}

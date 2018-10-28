@@ -37,14 +37,14 @@ public class TestService {
         return "{\"value\": \"ok admin\"}";
     }
 
-    @RequestMapping(value = "/current-user", method = RequestMethod.GET, produces="application/json")
+    /*@RequestMapping(value = "/current-user", method = RequestMethod.GET, produces="application/json")
     @ResponseBody
     public User currentUserName(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         return user;
-    }
+    }*/
 
-    @RequestMapping(value = "/productos", produces = "application/json")
+    /*@RequestMapping(value = "/productos", produces = "application/json")
 	public String all() throws ParseException {
         //return repository.findAll();
         Usuario usuarioAux = new Usuario();
@@ -56,7 +56,7 @@ public class TestService {
         //return jsonObj;
         //return( usuarioAux.getNombre().toJson());
         return "{\"value\": \"ok product\"}";
-    }
+    }*/
 
     @RequestMapping(value = "/role", produces="application/json")
     @ResponseBody

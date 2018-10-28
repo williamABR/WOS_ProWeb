@@ -21,13 +21,26 @@ export class RestClientService {
     });
   }
 
+  newProduct(id: number, nombre: string, precio: number, medida: string, url: string) {
+    let producto: Producto = new Producto();
+    producto.idProducto = id;
+    producto.nombre = nombre;
+    producto.precio = precio;
+    producto.unidadMedida = medida;
+    producto.url = url;
+    return this.http.post('http://localhost:8080/new_prod', JSON.stringify(producto), {
+      withCredentials: true
+    });
+  }
+
   getTestData() {
     return this.http.post('http://localhost:8080/api/test', '', {
       withCredentials: true
     });
   }
+
   productosFindAll() {
-    return this.http.post('http://localhost:8080/api/productos', '',{
+    return this.http.post('http://localhost:8080/productos', '',{
       withCredentials: true
     });
   }
@@ -45,8 +58,9 @@ export class RestClientService {
   }
 
   logout() {
-    return this.http.post('http://localhost:8080/logout', '', {
+    /*return this.http.post('http://localhost:8080/logout', '', {
       withCredentials: true
-    });
+    });*/
+    return this.newProduct(2, 'Producto2', 1000, 'g', 'www.producto2.com');
   }
 }

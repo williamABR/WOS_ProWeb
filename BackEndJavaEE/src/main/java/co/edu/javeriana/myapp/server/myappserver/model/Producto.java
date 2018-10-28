@@ -63,4 +63,12 @@ public class Producto {
         this.unidadMedida = unidadMedida;
     }
 
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 }
