@@ -33,7 +33,7 @@ export class RestClientService {
   }
 
   getRole() {
-    return this.http.post('http://localhost:8080/api/getRole', '',{
+    return this.http.post('http://localhost:8080/api/role', '',{
       withCredentials: true
     });
   }

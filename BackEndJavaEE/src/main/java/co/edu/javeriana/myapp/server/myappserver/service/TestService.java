@@ -58,15 +58,12 @@ public class TestService {
         return "{\"value\": \"ok product\"}";
     }
 
-    /*@RequestMapping(value = "/getRole", method = RequestMethod.GET, produces="application/json")
+    @RequestMapping(value = "/role", produces="application/json")
     @ResponseBody
-    public String currentRole(Authentication authentication) {
+    public User currentRole(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
-        Usuario usuarioAux = new Usuario();
-        usuarioAux.setPassword(user.getPassword());
-        usuarioAux.setRol("BODEGUERO");
-        return usuarioAux.getNombre();
-    }*/
+        return user;
+    }
     
     
 }
