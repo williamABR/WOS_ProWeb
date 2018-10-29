@@ -11,6 +11,8 @@
   <form class="woocommerce-cart-form" (ngSubmit)="crearLote()">
     <br>
       <div class="form-group">
+          <label >Id Lote</label>
+          <input type="text" class="form-control" [(ngModel)]="idLote" name="idLote">
           <label for="exampleFormControlSelect1">Producto</label>
           <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="produ" name="produ">
             <option *ngFor="let producto of productos" [value]="producto.Value" >{{producto.nombre}}</option>
