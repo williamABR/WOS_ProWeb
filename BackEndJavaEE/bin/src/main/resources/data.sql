@@ -13,8 +13,4 @@ insert into person values (6, 'person6', 1);
 insert into person values (7, 'person7', 1);
 insert into person values (8, 'person8', 2);
 insert into person values (9, 'person9', 2);*/
-insert into Producto values (1, 'producto1', 500, 'Kg', 'https://www.goo.gl/778NPP');
-insert into Producto values (2, 'producto2', 1500, 'g', 'www.prod2.com');
-insert into Producto values (3, 'producto3', 2500, 'mg', 'www.prod3.com');
-insert into Producto values (4, 'producto4', 3500, 'Kg', 'www.prod4.com');
-insert into Producto values (5, 'producto5', 4500, 'g', 'www.prod5com');
+insert into Producto values (1, 'producto1', 500, 'Kg', 'www.prod1.com');

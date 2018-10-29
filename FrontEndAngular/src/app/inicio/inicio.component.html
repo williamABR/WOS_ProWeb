@@ -10,22 +10,15 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
+      <!--<div class="col-md-4" *ngFor="let producto of productos">
+
+      </div>-->
+
       <div class="col-md-4" *ngFor="let producto of productos">
-        <div class="card mb-4 shadow-sm" >
-          <img class="card-img-top"src="{{producto.url}}" style="height: 225px; width: 100%; display: block;">
-          <div class="card-body">
-            <p class="card-text">{{producto.nombre}}</p>
-            <p class="card-text">${{producto.precio}}</p>
-            <p class="card-text">medida: {{producto.medida}}</p>
-            <p class="card-text">referencia: {{producto.codigo}}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="agregarCarrito(producto.nombre,producto.precio,producto.medida,producto.codigo)">Agregar Producto</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-producto nombre={{producto.nombre}} precio={{producto.precio}} medida={{producto.unidadMedida}} codigo={{producto.nombre}} url={{producto.url}}></app-producto>
       </div>
+
+
     </div>
   </div>
 </div>

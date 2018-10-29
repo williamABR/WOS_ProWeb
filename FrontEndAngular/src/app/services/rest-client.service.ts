@@ -54,8 +54,8 @@ export class RestClientService {
     });
   }
 
-  productosFindAll() {
-    return this.http.get('http://localhost:8080/productos',{
+  productosFindAll(): Observable<Producto[]> {
+    return this.http.get<Producto[]>('http://localhost:8080/productos',{
       withCredentials: true
     });
   }

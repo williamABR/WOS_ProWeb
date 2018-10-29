@@ -13,6 +13,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import {InventarioComponent} from './inventario/inventario.component';
 import { CrearLoteComponent } from './crear-lote/crear-lote.component';
 import { CrearProductoComponent } from './crear-producto/crear-producto.component';
+import { ProductoComponent } from './producto/producto.component';
 
 
 
@@ -24,7 +25,8 @@ import { CrearProductoComponent } from './crear-producto/crear-producto.componen
     CarritoComponent,
     InventarioComponent,
     CrearLoteComponent,
-    CrearProductoComponent
+    CrearProductoComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,

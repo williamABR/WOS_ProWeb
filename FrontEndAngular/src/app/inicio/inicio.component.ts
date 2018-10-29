@@ -35,7 +35,7 @@ export class InicioComponent implements OnInit {
     this.restClient.productosFindAll().subscribe(data => {
       //this.restClient.getRole.subscribe(data => {
       console.log('Success' + data);
-      this.message = JSON.stringify(data);
+      this.productos = data;
       //this.message =data;
     }, error => {
       console.error(error);
@@ -52,6 +52,7 @@ export class InicioComponent implements OnInit {
     this.aux.precio = pre;
     this.aux.unidadMedida = med;
     this.carrito.push(this.aux);
+   
   }
 
   logout() {
