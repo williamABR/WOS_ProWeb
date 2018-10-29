@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoFac } from './../services/ProductoFac';
 import { RestClientService } from './../services/rest-client.service';
 import { Router } from "@angular/router";
+import { ListaCarritoService } from '../lista-carrito.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -10,18 +12,14 @@ import { Router } from "@angular/router";
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  productos: ProductoFac[] = [
-    {  idProducto: 1, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
-    {  idProducto: 2, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
-    {  idProducto: 3, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
-    {  idProducto: 4, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
-    {  idProducto: 5, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
-    {  idProducto: 6, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },
-    {  idProducto: 7, nombre: 'Mr. Nice', unidadMedida:'ml' ,precio:1000, cantidad:1 },];
+    
   total:number = 0;
+  productos: ProductoFac[] = [];
+
 
   constructor(private restClient: RestClientService, private router: Router) {
     this.cambiar();
+    this.agregarValoresAlista();
    }
 
   ngOnInit() {
@@ -30,6 +28,12 @@ export class CarritoComponent implements OnInit {
     for (let i in this.productos) {
       this.total = this.total + (this.productos[i].precio * this.productos[i].cantidad); 
    }
+  }
+  agregarValoresAlista(){
+    let newProd: ProductoFac;
+    newProd = { idProducto: 1, nombre: 'producto1', unidadMedida:'Kg' ,precio:500, cantidad:1 }
+    this.productos.push(newProd);
+    //console.log(ListaCarritoService.carrito.length);
   }
 
   logout() {
@@ -40,6 +44,16 @@ export class CarritoComponent implements OnInit {
       console.error(error);
       //this.message = JSON.stringify(error);
     });
+  }
+
+  agregarCarrito(){
+    //this.aux.idProducto = cod;
+    //this.aux.nombre = nom;
+    //this.aux.precio = pre;
+    //this.aux.unidadMedida = med;
+    console.error("HOLLLAAAAAAAAA");
+    //this.carrito.push(this.aux);
+   
   }
 
 }

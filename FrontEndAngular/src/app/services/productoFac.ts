@@ -1,7 +1,7 @@
 export class ProductoFac {
     idProducto: number;
-    nombre: string;
-    unidadMedida: string;
+    nombre: String;
+    unidadMedida: String;
     precio: number;
     cantidad: number;  
 }

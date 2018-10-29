@@ -15,19 +15,18 @@
           <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Producto</th>
-                  <th scope="col">Referencia</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
                   <th scope="col">Medida</th>
                   <th scope="col">Cantidad</th>
-                  <th scope="col">Precio</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let producto of productos">
                   <th scope="row">{{producto.nombre}}</th>
-                  <td>{{producto.codigo}}</td>
-                  <td>{{producto.medida}}</td>
-                  <td style=" width:70px;"><input type="number"  class="form-control" name="cantidad" value="{{producto.cantidad}}" onclick="cambiar()"></td>
+                  <td>{{producto.precio}}</td>
+                  <td>{{producto.unidadMedida}}</td>
+                  <td>{{producto.cantidad}}</td>
                   <td>{{producto.precio}}</td>
                 </tr>
               </tbody>
@@ -39,7 +38,7 @@
                     <th scope="col">  </th>
                     <th scope="col">  </th>
                     <th scope="col">  Total:</th>
-                    <th scope="col">${{total}}</th>
+                    <th scope="col">500</th>
                   </tr>
                 </thead>
               </table>
