@@ -9,19 +9,21 @@
   </nav>
   <div class="container">
   <form class="woocommerce-cart-form" (ngSubmit)="crearProducto()">
-    <br>
-    <div class="form-group">
-    <label>Producto</label>
-    <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre">
-    <label >Precio</label>
-    <input type="number" class="form-control" [(ngModel)]="precio" name="precio">
-    <label >Unidad de Medida</label>
-    <input type="text" class="form-control"[(ngModel)]="unidadMedida" name="medida">
-    <label >Url de la Imagen</label>
-    <input type="text" class="form-control" [(ngModel)]="url" name="url">
-    <br>
-    <button type="input" class="btn btn-primary" style=" width:300px; position: relative;left: 10.5cm;">Crear Nuevo Producto</button>
-    </div>
+      <br>
+      <div class="form-group">
+      <label>Id Producto</label>
+      <input type="text" class="form-control" [(ngModel)]="idProducto" name="idProducto">
+      <label>Producto</label>
+      <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre">
+      <label >Precio</label>
+      <input type="number" class="form-control" [(ngModel)]="precio" name="precio">
+      <label >Unidad de Medida</label>
+      <input type="text" class="form-control"[(ngModel)]="unidadMedida" name="medida">
+      <label >Url de la Imagen</label>
+      <input type="text" class="form-control" [(ngModel)]="url" name="url">
+      <br>
+      <button type="input" class="btn btn-primary" style=" width:300px; position: relative;left: 10.5cm;">Crear Nuevo Producto</button>
+      </div>
   </form>
   </div>
   <footer class="footer text-faded text-center py-5">

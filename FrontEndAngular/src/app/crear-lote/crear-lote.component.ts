@@ -11,19 +11,25 @@ import { Lote } from '../services/lote';
 })
 export class CrearLoteComponent implements OnInit {
 
-  loteNuevo:Lote={producto:{idProducto: 0, nombre:'' , unidadMedida:'', precio:0,url:''},id:0,codigoSKU:'',stock:0}; 
+  loteNuevo:Lote={producto:{idProducto: 0, nombre:'' , unidadMedida:'', precio:0,url:''},idLote:0,codigoSKU:'',stock:0}; 
+  idLote:number;
   stock:number = 0;
   codigo='';
   produ:Producto; 
-  productos: Producto[] = [
-    { idProducto: 123, nombre: 'Tomate', unidadMedida:'ml', precio:1000, url:'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjAzqGWhqjeAhUC01kKHY7NAA4QjRx6BAgBEAU&url=http%3A%2F%2Fwww.le-relais-des-saisons.fr%2Fmagasin%2Flegumes%2Ftomates-rondes%2F&psig=AOvVaw3WhosAtGN7MoqRRXU2X7Tj&ust=1540778718029689'},
-    { idProducto: 123, nombre: 'Manzana' , unidadMedida:'ml', precio:1000,url:'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjAzqGWhqjeAhUC01kKHY7NAA4QjRx6BAgBEAU&url=http%3A%2F%2Fwww.le-relais-des-saisons.fr%2Fmagasin%2Flegumes%2Ftomates-rondes%2F&psig=AOvVaw3WhosAtGN7MoqRRXU2X7Tj&ust=1540778718029689'},
-    { idProducto: 123, nombre: 'Carne', unidadMedida:'ml', precio:1000,url:'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjAzqGWhqjeAhUC01kKHY7NAA4QjRx6BAgBEAU&url=http%3A%2F%2Fwww.le-relais-des-saisons.fr%2Fmagasin%2Flegumes%2Ftomates-rondes%2F&psig=AOvVaw3WhosAtGN7MoqRRXU2X7Tj&ust=1540778718029689'}
-  ];
+  productos: Producto[] = [];
 
   constructor(private restClient: RestClientService, private router: Router) { }
 
   ngOnInit() {
+    this.restClient.productosFindAll().subscribe(data => {
+      //this.restClient.getRole.subscribe(data => {
+      console.log('Success' + data);
+      this.productos = data;
+      //this.message =data;
+    }, error => {
+      console.error(error);
+    }
+    );
   }
 
   logout() {
@@ -36,10 +42,11 @@ export class CrearLoteComponent implements OnInit {
     });
   }
   crearLote(){
+    this.loteNuevo.idLote = this.idLote;
     this.loteNuevo.codigoSKU = this.codigo;
     this.loteNuevo.stock = this.stock;
     this.loteNuevo.producto = this.produ;
-    console.log(this.loteNuevo);
+    this.restClient.newLote(this.loteNuevo);
     this.router.navigate(['inventario'])
   }
 }

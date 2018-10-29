@@ -10,8 +10,8 @@ import { Producto } from '../services/Producto';
 })
 export class CrearProductoComponent implements OnInit {
 
-  ide = 0;
-  nuevoProducto:Producto = {idProducto: this.ide, nombre:'', precio:0, unidadMedida:'',url:''};
+  idProducto:number;
+  nuevoProducto:Producto = {idProducto: 10, nombre:'', precio:0, unidadMedida:'',url:''};
   nombre='';
   precio=0;
   unidadMedida='';
@@ -33,8 +33,7 @@ export class CrearProductoComponent implements OnInit {
   }
 
   crearProducto(){
-    this.ide++;
-    this.nuevoProducto.idProducto = this.ide;
+    this.nuevoProducto.idProducto = this.idProducto;
     this.nuevoProducto.nombre = this.nombre;
     this.nuevoProducto.precio = this.precio;
     this.nuevoProducto.unidadMedida = this.unidadMedida;
